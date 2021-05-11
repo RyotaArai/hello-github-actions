@@ -1,0 +1,15 @@
+name: upload-manifest-to-s3
+
+on:
+  push:
+    branches:
+      - upload-manifest
+    pathes:
+      - 'common/mercury-publisher.yaml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo test
