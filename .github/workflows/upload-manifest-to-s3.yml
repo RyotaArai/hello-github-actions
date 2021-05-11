@@ -4,12 +4,14 @@ on:
   push:
     branches:
       - upload-manifest
-    paths:
-      - 'common/mercury-publisher.yaml'
 
 jobs:
-  test:
+  upload-manifest:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_REF_CONTEXT: ${{ github.ref }}
     steps:
-      - run: |
-          echo test
+      - name: test
+        run: |
+          echo ${GITHUB_REF_CONTEXT}
+
