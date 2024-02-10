@@ -1,8 +1,16 @@
 name: Test workflow_dispatch
 
 on:
-  push:
   workflow_dispatch:
+    inputs:
+      input1:
+        type: string
+        required: true
+        default: 'Value1'
+      input2:
+        type: string
+        required: true
+        default: 'Value2'
 
 jobs:
   Job1:
@@ -10,4 +18,5 @@ jobs:
     steps:
     - name: Step1
       run: |
-        echo Hello
+        echo ${{ inputs.input1 }}
+        echo ${{ inputs.input2 }}
